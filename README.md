@@ -1,5 +1,7 @@
 # VelocityDiscordLogger
 
+[🇰🇷 한국어 (Korean)](README_KR.md)
+
 A robust Velocity proxy plugin for logging Minecraft server events to Discord. It supports network-wide join/quit messages, server status notifications, console logging, and integrates with backend servers for achievements and death messages.
 
 ## Features
