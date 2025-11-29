@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'me.minseok'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'com.velocitypowered:velocity-api:3.3.0-SNAPSHOT'
+    annotationProcessor 'com.velocitypowered:velocity-api:3.3.0-SNAPSHOT'
+    
+    implementation 'net.dv8tion:JDA:5.0.0-beta.20'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.moandjiezana.toml:toml4j:0.7.2'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('VelocityDiscordLogger')
+    archiveClassifier.set('')
+    relocate 'net.dv8tion.jda', 'me.minseok.velocitydiscordlogger.libs.jda'
+    relocate 'com.google.gson', 'me.minseok.velocitydiscordlogger.libs.gson'
+    relocate 'com.moandjiezana.toml', 'me.minseok.velocitydiscordlogger.libs.toml'
+}
+
+build.dependsOn shadowJar
