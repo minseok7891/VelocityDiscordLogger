@@ -1,113 +1,52 @@
-Messages appear in Discord with:
-- 🟢 Green embed for joins (#00ff00)
-- 🔴 Red embed for quits (#ff0000)
-- 👤 Player avatar from Visage API
-- 📝 Customizable Korean/English messages
+# VelocityDiscordLogger
 
-## 📥 Installation
+A robust Velocity proxy plugin for logging Minecraft server events to Discord. It supports network-wide join/quit messages, server status notifications, console logging, and integrates with backend servers for achievements and death messages.
 
-1. Download the latest `VelocityDiscordLogger-X.X.X.jar` from [Releases](https://github.com/minseok7891/VelocityDiscordLogger/releases)
-2. Place the JAR file in your `velocity/plugins/` folder
-3. Restart your Velocity proxy server
-4. Edit `velocity/plugins/velocitydiscordlogger/config.toml` with your bot token and channel ID
-5. Restart Velocity again to apply configuration
+## Features
 
-## ⚙️ Configuration
+- **Network-wide Logging**:
+  - **Join/Quit**: Logs when players join or leave the proxy network.
+  - **Server Switching**: (Optional) Can be configured to ignore server switches to reduce spam.
+- **Server Status Notifications**:
+  - Sends an embed message when the proxy starts (`:white_check_mark:`) and stops (`:octagonal_sign:`).
+  - **Robust Shutdown**: Includes a JVM shutdown hook and REST API fallback to ensure stop notifications are sent even during forced terminations (e.g., `docker restart`).
+- **Console Logging**:
+  - Streams Velocity console logs to a specific Discord channel in real-time.
+- **Backend Integration**:
+  - Works with `VelocityDiscordLogger-Backend` to log **Achievements** and **Death Messages** from backend servers (Paper/Purpur).
+- **Customizable Messages**:
+  - Fully configurable messages, colors, and formats via `config.toml`.
+  - Supports player avatars in embeds.
 
-After first startup, edit `velocity/plugins/velocitydiscordlogger/config.toml`:
+## Installation
+
+1. Download the latest release.
+2. Place the `VelocityDiscordLogger-1.0.0.jar` file into your Velocity `plugins` folder.
+3. Restart the proxy.
+4. Configure `plugins/velocitydiscordlogger/config.toml` with your Discord Bot Token and Channel IDs.
+
+## Configuration
 
 ```toml
-# Discord Bot Token from https://discord.com/developers/applications
+# Discord Bot Configuration
 bot_token = "YOUR_BOT_TOKEN_HERE"
 
-# Channel IDs (all in one place for easy management)
 [channels]
-log = "1234567890"           # Server log channel ID
-chat = "9876543210"          # Chat channel ID (for future use)
-deaths = "1111111111"        # Deaths channel ID (for future use)
-achievements = "2222222222"  # Achievements channel ID (for future use)
+log = "CHANNEL_ID"           # Join/Quit logs
+status = "CHANNEL_ID"        # Server Start/Stop notifications
+console = "CHANNEL_ID"       # Console logs
+achievements = "CHANNEL_ID"  # Achievement logs (requires backend plugin)
+deaths = "CHANNEL_ID"        # Death logs (requires backend plugin)
 
-# Join Message Settings
 [messages.join]
 enabled = true
-color = "#00ff00"
-format = "%username% joined the network"
+format = "%username% joined the network."
 
-# Quit Message Settings
 [messages.quit]
 enabled = true
-color = "#ff0000"
-format = "%username% left the network"
-
-# Player Avatar Settings
-[avatar]
-base_url = "https://visage.surgeplay.com/face/96/{uuid}"
+format = "%username% left the network."
 ```
 
-### Available Placeholders
+## Backend Plugin
 
-- `%username%` - Player's Minecraft username
-- `%uuid%` - Player's Minecraft UUID
-
-## 🤖 Discord Bot Setup
-
-1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
-2. Click "New Application" and give it a name
-3. Go to "Bot" tab and click "Add Bot"
-4. **Important:** Enable these Gateway Intents:
-   - ✅ Server Members Intent
-   - ✅ Presence Intent  
-5. Copy the bot token and paste it in your `config.toml`
-6. Go to "OAuth2" → "URL Generator"
-   - Select scopes: `bot`
-   - Select permissions: `Send Messages`, `Embed Links`
-7. Copy the generated URL and open it to invite the bot to your Discord server
-
-## 🔧 Building from Source
-
-Requirements:
-- Java 17+
-- Gradle
-
-```bash
-git clone https://github.com/minseok7891/VelocityDiscordLogger.git
-cd VelocityDiscordLogger
-gradle shadowJar
-```
-
-Built JAR will be located at `build/libs/VelocityDiscordLogger-1.0.0.jar`
-
-## 📋 Requirements
-
-- Velocity 3.3.0 or higher
-- Java 17 or higher
-- Discord bot with Gateway Intents enabled
-- Discord server with appropriate permissions
-
-## 🆚 Comparison with Other Solutions
-
-| Feature | VelocityDiscordLogger | DiscordSRV | HuskChat |
-|---------|----------------------|------------|----------|
-| Network-level detection | ✅ | ❌ (server-level) | ✅ |
-| Embed + Avatar together | ✅ | ✅ | ❌ |
-| No server-switch spam | ✅ | ❌ | ✅ |
-| Lightweight | ✅ | ⚠️ | ✅ |
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Credits
-
-- Built with [JDA (Java Discord API)](https://github.com/discord-jda/JDA)
-- Player avatars from [Visage](https://visage.surgeplay.com/)
-
-## 💬 Support
-
-For issues, feature requests, or questions:
-- Open an issue on [GitHub Issues](https://github.com/minseok7891/VelocityDiscordLogger/issues)
-- Join our Discord: [Coming Soon]
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+To enable **Achievement** and **Death** logging, you must install the [VelocityDiscordLogger-Backend](https://github.com/minseok7891/VelocityDiscordLogger-Backend) plugin on your backend servers (Lobby, Survival, Creative, etc.).
