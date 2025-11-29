@@ -18,7 +18,7 @@ out/
 Thumbs.db
 
 # Configuration (contains sensitive tokens)
-src/main/resources/config.toml
+src/main/resources/config.toml.bak
 
 # Logs
 *.log

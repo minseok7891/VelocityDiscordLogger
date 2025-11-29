@@ -39,6 +39,10 @@ public class PluginConfig {
         return toml.getString("channels.console", "");
     }
 
+    public String getStatusChannelId() {
+        return toml.getString("channels.status", "");
+    }
+
     public boolean isJoinEnabled() {
         return toml.getBoolean("messages.join.enabled", true);
     }
@@ -61,6 +65,30 @@ public class PluginConfig {
 
     public String getQuitFormat() {
         return toml.getString("messages.quit.format", "%username% left the network");
+    }
+
+    public boolean isStartEnabled() {
+        return toml.getBoolean("messages.start.enabled", true);
+    }
+
+    public String getStartColor() {
+        return toml.getString("messages.start.color", "#00ff00");
+    }
+
+    public String getStartFormat() {
+        return toml.getString("messages.start.format", "Server Started!");
+    }
+
+    public boolean isStopEnabled() {
+        return toml.getBoolean("messages.stop.enabled", true);
+    }
+
+    public String getStopColor() {
+        return toml.getString("messages.stop.color", "#ff0000");
+    }
+
+    public String getStopFormat() {
+        return toml.getString("messages.stop.format", "Server Stopped!");
     }
 
     public String getAvatarUrl() {
