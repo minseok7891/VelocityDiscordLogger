@@ -1,0 +1,38 @@
+# Discord Bot Configuration
+bot_token = "YOUR_BOT_TOKEN_HERE"
+
+# Channel IDs (all in one place for easy management)
+[channels]
+log = "YOUR_LOG_CHANNEL_ID"           # 📊ㅣ서버-로그
+chat = "YOUR_CHAT_CHANNEL_ID"          # 🎮ㅣ인게임-채팅
+deaths = "YOUR_DEATHS_CHANNEL_ID"        # ☠ㅣ사망-로그
+achievements = "YOUR_ACHIEVEMENTS_CHANNEL_ID"  # 🏆ㅣ도전과제
+console = "YOUR_CONSOLE_CHANNEL_ID"       # 💻ㅣ콘솔로그
+status = "YOUR_STATUS_CHANNEL_ID"        # 📢ㅣ공지사항 (서버 상태)
+
+# Join/Quit Message Settings
+[messages.join]
+enabled = true
+color = "#00ff00"
+format = "%username% 님이 서버에 접속하셨습니다."
+
+[messages.quit]
+enabled = true
+color = "#ff0000"
+format = "%username% 님이 서버에서 나가셨습니다."
+
+# Server Status Message Settings
+[messages.start]
+enabled = true
+color = "#00ff00"
+format = ":white_check_mark: 서버가 시작되었습니다."
+
+[messages.stop]
+enabled = true
+color = "#ff0000"
+format = ":octagonal_sign: 서버가 종료되었습니다."
+
+# Player Avatar Settings
+[avatar]
+# Visage API for Minecraft player heads
+base_url = "https://visage.surgeplay.com/face/96/{uuid}"

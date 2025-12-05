@@ -1,0 +1,75 @@
+Initialized native services in: C:\Users\minse\.gradle\native
+Initialized jansi services in: C:\Users\minse\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot, JAVA_VERSION=21.0.9, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.9+10-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.9+10-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+The client will now receive all logging from the daemon (pid: 7012). The daemon log file: C:\Users\minse\.gradle\daemon\8.7\daemon-7012.out.log
+Starting 15th build in daemon [uptime: 1 hrs 57 mins 38.731 secs, performance: 100%, GC rate: 0.00/s, heap usage: 2% of 512 MiB, non-heap usage: 20% of 384 MiB]
+Using 16 worker leases.
+Now considering [C:\Users\minse\Desktop\ef\ef\VelocityDiscordLogger, C:\Users\minse\Desktop\ef\ef\velocity-discord-logger-backend] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'C:\Users\minse\Desktop\ef\ef\VelocityDiscordLogger\settings.gradle'.
+Projects loaded. Root project using build file 'C:\Users\minse\Desktop\ef\ef\VelocityDiscordLogger\build.gradle'.
+Included projects: [root project 'velocity-discord-logger']
+
+> Configure project :
+Evaluating root project 'velocity-discord-logger' using build file 'C:\Users\minse\Desktop\ef\ef\VelocityDiscordLogger\build.gradle'.
+Transforming shadow-8.1.1.jar (com.github.johnrengelman:shadow:8.1.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming log4j-core-2.20.0.jar (org.apache.logging.log4j:log4j-core:2.20.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jdom2-2.0.6.1.jar (org.jdom:jdom2:2.0.6.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-commons-9.4.jar (org.ow2.asm:asm-commons:9.4) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-tree-9.4.jar (org.ow2.asm:asm-tree:9.4) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-9.4.jar (org.ow2.asm:asm:9.4) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-io-2.11.0.jar (commons-io:commons-io:2.11.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming ant-1.10.13.jar (org.apache.ant:ant:1.10.13) with ExternalDependencyInstrumentingArtifactTransform
+Transforming plexus-utils-3.5.1.jar (org.codehaus.plexus:plexus-utils:3.5.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jdependency-2.8.0.jar (org.vafer:jdependency:2.8.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming ant-launcher-1.10.13.jar (org.apache.ant:ant-launcher:1.10.13) with ExternalDependencyInstrumentingArtifactTransform
+Transforming log4j-api-2.20.0.jar (org.apache.logging.log4j:log4j-api:2.20.0) with ExternalDependencyInstrumentingArtifactTransform
+All projects evaluated.
+Task name matched 'build'
+Selected primary task 'build' from project :
+Tasks to be executed: [task ':compileJava', task ':processResources', task ':classes', task ':jar', task ':assemble', task ':shadowJar', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':test', task ':check', task ':build']
+Tasks that were excluded: []
+Resolve mutations for :compileJava (Thread[#1440,Execution worker,5,main]) started.
+:compileJava (Thread[#1440,Execution worker,5,main]) started.
+This JVM does not support getting OS memory, so no OS memory status updates will be broadcast
+
+> Task :compileJava FAILED
+Caching disabled for task ':compileJava' because:
+  Build cache is disabled
+Task ':compileJava' is not up-to-date because:
+  Task has failed previously.
+The input changes require a full rebuild for incremental task ':compileJava'.
+Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
+Compiling with toolchain 'C:\Users\minse\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2'.
+Starting process 'Gradle Worker Daemon 12'. Working directory: C:\Users\minse\.gradle\workers Command: C:\Users\minse\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\java.exe @C:\Users\minse\.gradle\.tmp\gradle-worker-classpath13423784283544220902txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=KR -Duser.language=ko -Duser.variant worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Worker Daemon 12'
+Successfully started process 'Gradle Worker Daemon 12'
+Started Gradle worker daemon (0.369 secs) with fork options DaemonForkOptions{executable=C:\Users\minse\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\java.exe, minHeapSize=null, maxHeapSize=null, jvmArgs=[], keepAliveMode=DAEMON}.
+Compiling with JDK Java compiler API.
+C:\Users\minse\Desktop\ef\ef\VelocityDiscordLogger\src\main\java\me\minseok\velocitydiscordlogger\ChatListener.java:61: error: class, interface, enum, or record expected
+    public void close() {
+           ^
+C:\Users\minse\Desktop\ef\ef\VelocityDiscordLogger\src\main\java\me\minseok\velocitydiscordlogger\ChatListener.java:64: error: class, interface, enum, or record expected
+        }
+        ^
+2 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.7/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 1s
+1 actionable task: 1 executed
+Watched directory hierarchies: [C:\Users\minse\Desktop\ef\ef\VelocityDiscordLogger, C:\Users\minse\Desktop\ef\ef\velocity-discord-logger-backend]

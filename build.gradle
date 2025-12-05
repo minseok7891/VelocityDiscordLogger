@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.ow2.asm:asm:9.7'
+        classpath 'org.ow2.asm:asm-commons:9.7'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'me.minseok'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'com.velocitypowered:velocity-api:3.3.0-SNAPSHOT'
+    annotationProcessor 'com.velocitypowered:velocity-api:3.3.0-SNAPSHOT'
+    
+    implementation 'net.dv8tion:JDA:5.0.0-beta.20'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.moandjiezana.toml:toml4j:0.7.2'
+    implementation 'com.zaxxer:HikariCP:5.1.0'
+    implementation 'com.mysql:mysql-connector-j:8.2.0'
+    implementation 'club.minnced:discord-webhooks:0.8.4'
+    compileOnly 'org.apache.logging.log4j:log4j-core:2.17.1'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('Discord-Logger-Main')
+    archiveClassifier.set('')
+    mergeServiceFiles()
+    relocate 'net.dv8tion.jda', 'me.minseok.velocitydiscordlogger.libs.jda'
+    relocate 'com.google.gson', 'me.minseok.velocitydiscordlogger.libs.gson'
+    relocate 'com.moandjiezana.toml', 'me.minseok.velocitydiscordlogger.libs.toml'
+    relocate 'com.zaxxer.hikari', 'me.minseok.velocitydiscordlogger.libs.hikari'
+    relocate 'club.minnced.discord.webhook', 'me.minseok.velocitydiscordlogger.libs.webhook'
+}
+
+build.dependsOn shadowJar

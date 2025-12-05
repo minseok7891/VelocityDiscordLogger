@@ -1,0 +1,24 @@
+# Build output
+build/
+.gradle/
+out/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Configuration (contains sensitive tokens)
+src/main/resources/config.toml.bak
+
+# Logs
+*.log
